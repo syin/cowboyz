@@ -1,0 +1,68 @@
+body {
+    background-color: #ebb6ac;
+    color: #222;
+    font-family: Lato, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+    font-style: italic;
+    text-align: center;
+    margin: 6rem 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20rem;
+    height: 20rem;
+    border: 1px solid red;
+}
+
+.input {
+
+}
+
+.transform {
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid red;
+}
+
+.arrow {
+    display: block;
+    font-size: 10rem;
+    text-align: center;
+    line-height: 10rem;
+}
+
+.output {
+
+}
+
+.share {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.share-buttons {
+    display: flex;
+}
+
+.share-button {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid red;
+}

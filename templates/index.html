@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🤠 cowboyz 🤠</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+<body>
+    <h1>cowboyz</h1>
+
+    <cowboyz></cowboyz>
+
+    <share></share>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
+
+    <script type="riot/tag" src="{{ url_for('static',filename='cowboyz.tag') }}"></script>
+    <script type="riot/tag" src="{{ url_for('static',filename='share.tag') }}"></script>
+
+    <script>
+        riot.mount('cowboyz');
+        riot.mount('share');
+    </script>
+</body>
+</html>
