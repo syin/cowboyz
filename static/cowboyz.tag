@@ -1,12 +1,18 @@
 <cowboyz>
     <div class="container">
         <div class="box input">
-            <img if={ input_img } src="/static/assets/ios/{ input_img.name }.png" alt="">
-            <div if={ show_emoji_picker }></div>
+            <div onclick={ showEmojiPicker } class="input-wrapper">
+                <img if={ input_img } src="/static/assets/ios/{ input_img.name }.png" alt="" class="input-img">
+            </div>
+            <div ref="emojiPicker" if={ show_emoji_picker && available_emojis.length } tabindex="0" class="emoji-picker">
+                <div class="emoji-picker-content">
+                    <img each={ name in available_emojis } data-emoji-name={ name } onclick={ selectEmoji } src="/static/assets/ios/{ name }.png" alt="">
+                </div>
+            </div>
         </div>
         <div class="transform">
             <span class="arrow">&#x27A1;</span>
-            <span>yeehaw</span>
+            <span class="yeehaw">yeehaw</span>
         </div>
         <div class="box output">
             <img if={ cowboized_img } src="/static/output/{ cowboized_img.name }_cowboyz.png" alt="">
@@ -44,6 +50,31 @@
                 console.log('error', error);
             });
         }
+
+        showEmojiPicker(e) {
+            e.stopPropagation();
+            self.show_emoji_picker = true;
+            self.update();
+            self.refs.emojiPicker.focus();
+        }
+
+        hideEmojiPicker() {
+            self.show_emoji_picker = false;
+            self.update();
+        }
+
+        selectEmoji(e) {
+            const selectedEmojiName = e.target.dataset.emojiName;
+            self.input_img = {
+                'name': selectedEmojiName,
+            };
+            self.cowboized_img = undefined;
+            self.cowboizeEmoji();
+        }
+
+        document.addEventListener("click", (e) => {
+            self.hideEmojiPicker();
+        });
 
         self.getEmojiList();
         self.cowboizeEmoji();

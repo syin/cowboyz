@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #ebb6ac;
   color: #222;
@@ -19,13 +20,54 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 20rem;
+  height: 20rem; }
+
+.input {
+  position: relative; }
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ca3178;
+  border-radius: 0.5rem;
+  background-color: #d76e5a;
+  overflow: hidden;
+  cursor: pointer; }
+  .input-wrapper:after {
+    content: "▼";
+    padding: 0 0.5rem;
+    color: #8c2253; }
+
+.input-img {
+  border-right: 1px solid #ca3178;
+  padding: 1rem;
+  background-color: #ebb6ac; }
+
+.emoji-picker {
+  position: absolute;
+  width: 20rem;
   height: 20rem;
-  border: 1px solid red; }
+  background: #fff;
+  box-sizing: border-box;
+  outline: 0;
+  background-color: #f5dad5;
+  border: 1px solid #ca3178;
+  border-radius: 0.5rem;
+  overflow: hidden; }
+
+.emoji-picker-content {
+  padding: 0.5rem;
+  height: 100%;
+  overflow: auto; }
+  .emoji-picker-content img {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.3rem;
+    cursor: pointer; }
 
 .transform {
   width: 10rem;
-  height: 10rem;
-  border: 1px solid red; }
+  height: 10rem; }
 
 .arrow {
   display: block;

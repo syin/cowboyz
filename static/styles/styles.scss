@@ -1,5 +1,8 @@
+$pink: #ebb6ac;
+$darker-pink: #ca3178;
+
 body {
-    background-color: #ebb6ac;
+    background-color: $pink;
     color: #222;
     font-family: Lato, Helvetica, sans-serif;
 }
@@ -24,17 +27,63 @@ h1 {
 
     width: 20rem;
     height: 20rem;
-    border: 1px solid red;
 }
 
 .input {
+    position: relative;
+}
 
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid $darker-pink;
+    border-radius: 0.5rem;
+    background-color: darken($pink, 20%);
+    overflow: hidden;
+    cursor: pointer;
+
+    &:after {
+        content: "▼";
+        padding: 0 0.5rem;
+        color: darken($darker-pink, 15%);
+    }
+}
+
+.input-img {
+    border-right: 1px solid $darker-pink;
+    padding: 1rem;
+    background-color: $pink;
+}
+
+.emoji-picker {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    background: #fff;
+    box-sizing: border-box;
+    outline: 0;
+    background-color: lighten($pink, 10%);
+    border: 1px solid $darker-pink;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.emoji-picker-content {
+    padding: 0.5rem;
+    height: 100%;
+    overflow: auto;
+
+    img {
+        width: 3rem;
+        height: 3rem;
+        padding: 0.3rem;
+        cursor: pointer;
+    }
 }
 
 .transform {
     width: 10rem;
     height: 10rem;
-    border: 1px solid red;
 }
 
 .arrow {
@@ -66,3 +115,4 @@ h1 {
     height: 5rem;
     border: 1px solid red;
 }
+
