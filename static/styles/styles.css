@@ -1,14 +1,62 @@
 @charset "UTF-8";
+@keyframes typing {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+@keyframes bounce {
+  /* bounce animation from https://github.com/daneden/animate.css */
+  from,
+  20%,
+  53%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  40%,
+  43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0); }
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0); }
+  90% {
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0); } }
 body {
   background-color: #ebb6ac;
   color: #222;
   font-family: Lato, Helvetica, sans-serif; }
 
 h1 {
-  font-size: 4rem;
+  font-size: 6rem;
   font-style: italic;
   text-align: center;
-  margin: 6rem 0; }
+  margin: 6rem auto;
+  /* wordart adapted from https://codepen.io/kathykato/pen/omxPap */
+  position: relative;
+  color: #ebb6ac;
+  -webkit-text-fill-color: #ebb6ac;
+  -webkit-text-stroke: 0.02em #3c3c3c;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* typewriter effect adapted from https://css-tricks.com/snippets/css/typewriter-effect/ */
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: .05em;
+  /* you can only do multiple animations by comma appending */
+  animation: bounce 1.5s, typing 2.5s steps(40, end); }
+  h1:before {
+    content: "cowboyz";
+    position: absolute;
+    z-index: -1;
+    text-shadow: 0.094em 0.078em #555555; }
 
 .container {
   display: flex;
@@ -73,7 +121,8 @@ h1 {
   display: block;
   font-size: 10rem;
   text-align: center;
-  line-height: 10rem; }
+  line-height: 10rem;
+  color: #3c3c3c; }
   .arrow:after {
     content: "\2192"; }
 
@@ -95,7 +144,7 @@ h1 {
 
 @media screen and (max-width: 768px) {
   h1 {
-    margin: 3rem 0 1rem; }
+    margin: 3rem auto 1rem; }
 
   .container {
     flex-direction: column; }
