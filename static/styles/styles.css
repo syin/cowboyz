@@ -126,6 +126,19 @@ h1 {
   .arrow:after {
     content: "\2192"; }
 
+.yeehaw {
+  font-family: "Comic Sans", "Comic Sans MS", sans-serif;
+  color: #3c3c3c;
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
+  display: block;
+  visibility: hidden;
+  text-align: center; }
+
+.yeehaw.show {
+  visibility: visible;
+  transition: visibility 0.5s ease 0.3s; }
+
 .share {
   margin-top: 4rem;
   display: flex;

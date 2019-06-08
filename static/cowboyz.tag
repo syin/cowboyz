@@ -12,6 +12,7 @@
         </div>
         <div class="transform">
             <span class="arrow"></span>
+            <span ref="yeehaw" class="yeehaw">yeehaw</span>
         </div>
         <div class="box output">
             <img if={ cowboized_img } ref="cowboizedImg" src="/static/output/{ cowboized_img.name }_cowboyz.png" alt="">
@@ -69,6 +70,15 @@
             };
             self.cowboized_img = undefined;
             self.cowboizeEmoji();
+            self.yeehawAnimation();
+        }
+
+        yeehawAnimation() {
+            console.log('self.refs.yeehaw.classList', self.refs.yeehaw.classList);
+            self.refs.yeehaw.classList.add("show");
+            setTimeout(function() {
+                self.refs.yeehaw.classList.remove("show");
+            }, 1000);
         }
 
         document.addEventListener("click", (e) => {

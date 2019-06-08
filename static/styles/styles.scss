@@ -167,6 +167,21 @@ h1 {
     }
 }
 
+.yeehaw {
+    font-family: "Comic Sans", "Comic Sans MS", sans-serif;
+    color: lighten(#222, 10%);
+    margin-top: 0.2rem;
+    font-size: 1.2rem;
+    display: block;
+    visibility: hidden;
+    text-align: center;
+}
+
+.yeehaw.show {
+    visibility: visible;
+    transition: visibility 0.5s ease 0.3s;
+}
+
 .share {
     margin-top: 4rem;
     display: flex;
