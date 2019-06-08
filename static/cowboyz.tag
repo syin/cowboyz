@@ -11,11 +11,10 @@
             </div>
         </div>
         <div class="transform">
-            <span class="arrow">&#x27A1;</span>
-            <span class="yeehaw">yeehaw</span>
+            <span class="arrow"></span>
         </div>
         <div class="box output">
-            <img if={ cowboized_img } src="/static/output/{ cowboized_img.name }_cowboyz.png" alt="">
+            <img if={ cowboized_img } ref="cowboizedImg" src="/static/output/{ cowboized_img.name }_cowboyz.png" alt="">
         </div>
     </div>
 
