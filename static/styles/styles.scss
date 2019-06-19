@@ -122,6 +122,8 @@ h1 {
     border-right: 1px solid $darker-pink;
     padding: 1rem;
     background-color: $pink;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .emoji-picker {
@@ -217,5 +219,38 @@ h1 {
 
     .arrow:after {
         content: "\2193";
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 3rem;
+        margin: 1rem auto 0rem;
+    }
+
+    .box {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .output img {
+        width: 80%;
+        height: 80%;
+    }
+    
+    .input-img {
+        width: 70%;
+        height: 70%;
+        padding: 0.5rem;
+    }
+
+    .transform {
+        width: 6rem;
+        height: 3rem;
+    }
+
+    .arrow {
+        font-size: 2rem;
+        line-height: 2rem;
     }
 }
