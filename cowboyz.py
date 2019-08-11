@@ -19,6 +19,9 @@ def transform_image(emoji_name, image, coordinates):
 
     image_width, image_height = coordinates[emoji_name]["size"]
     image = image.resize((image_width, image_height), resample=Image.BICUBIC)
+    # images with mode 'P' get converted to black background
+    # https://github.com/scrapy/scrapy/issues/1037
+    image = image.convert('RGBA')
 
     canvas_width = 160
     canvas_height = 160
