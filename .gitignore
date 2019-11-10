@@ -1,2 +1,3 @@
 static/output/
 static/styles/.sass-cache/
+*.pyc
