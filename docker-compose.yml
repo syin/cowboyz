@@ -2,19 +2,23 @@ version: "3"
 
 services:
   flask:
-    # container_name: cowboyz
     build:
       context: .
-    expose:
-      - 8000
     ports:
-      - "8000:8000"
+      - 8000:8000
     volumes:
       - .:/code
     environment:
-      - VIRTUAL_HOST=cowboyz.shirleyyin.com
+      - FLASK_APP=server.py
+      - FLASK_ENV=production
+    restart: always
 
-networks:
-  default:
-    external:
-      name: nginxproxy_default
+  nginx:
+    image: nginx:stable
+    ports:
+      - 8001:80
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/static
+    depends_on:
+      - flask
