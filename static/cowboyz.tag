@@ -31,7 +31,7 @@
         const rootUrl = 'https://cowboyz.shirleyyin.com';
 
         cowboizeEmoji() {
-            const apiUrl = `${rootUrl}/api/cowboize/${self.input_img.name}`;
+            const apiUrl = `api/cowboize/${self.input_img.name}`;
             fetch(apiUrl).then(response => {
                 response.json().then(data => {
                     self.cowboized_img = data;
@@ -43,7 +43,7 @@
         }
 
         getEmojiList() {
-            const apiUrl = '${rootUrl}/api/list';
+            const apiUrl = 'api/list';
             fetch(apiUrl).then(response => {
                 response.json().then(data => {
                     self.available_emojis = data;
