@@ -9,6 +9,8 @@ services:
     environment:
       - FLASK_APP=server.py
       - FLASK_ENV=production
+      - ROOT_URL=https://cowboyz.shirleyyin.com
+      - DEBUG=False
     restart: always
     networks:
       - default

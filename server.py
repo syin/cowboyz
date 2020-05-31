@@ -7,12 +7,13 @@ from flask_cors import CORS
 import cowboyz
 
 app = Flask(__name__)
+app.config['DEBUG'] = True if os.environ.get("ROOT_URL") == "True" else False
 CORS(app)
 
 
 @app.route('/')
 def server():
-    return render_template('index.html')
+    return render_template('index.html', root_url=os.environ.get("ROOT_URL"))
 
 
 @app.route('/api/list/')

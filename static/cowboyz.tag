@@ -28,10 +28,8 @@
         self.cowboized_img = undefined;
         self.show_emoji_picker = false;
 
-        const rootUrl = 'https://cowboyz.shirleyyin.com';
-
         cowboizeEmoji() {
-            const apiUrl = `api/cowboize/${self.input_img.name}`;
+            const apiUrl = `${rootUrl}/api/cowboize/${self.input_img.name}`;
             fetch(apiUrl, {method: 'GET', mode: 'cors'}).then(response => {
                 response.json().then(data => {
                     self.cowboized_img = data;
@@ -43,7 +41,7 @@
         }
 
         getEmojiList() {
-            const apiUrl = 'api/list';
+            const apiUrl = `${rootUrl}/api/list`;
             fetch(apiUrl, {method: 'GET', mode: 'cors'}).then(response => {
                 response.json().then(data => {
                     self.available_emojis = data;
