@@ -32,7 +32,7 @@
 
         cowboizeEmoji() {
             const apiUrl = `api/cowboize/${self.input_img.name}`;
-            fetch(apiUrl).then(response => {
+            fetch(apiUrl, {method: 'GET', mode: 'cors'}).then(response => {
                 response.json().then(data => {
                     self.cowboized_img = data;
                     self.update();
@@ -44,7 +44,7 @@
 
         getEmojiList() {
             const apiUrl = 'api/list';
-            fetch(apiUrl).then(response => {
+            fetch(apiUrl, {method: 'GET', mode: 'cors'}).then(response => {
                 response.json().then(data => {
                     self.available_emojis = data;
                 });
@@ -76,7 +76,6 @@
         }
 
         yeehawAnimation() {
-            console.log('self.refs.yeehaw.classList', self.refs.yeehaw.classList);
             self.refs.yeehaw.classList.add("show");
             setTimeout(function() {
                 self.refs.yeehaw.classList.remove("show");
