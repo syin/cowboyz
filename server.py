@@ -3,11 +3,13 @@ import os
 
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 import cowboyz
 
 app = Flask(__name__)
 app.config['DEBUG'] = True if os.environ.get("ROOT_URL") == "True" else False
+app.wsgi_app = ProxyFix(app.wsgi_app, x_num=0, x_proto=1)
 CORS(app)
 
 
