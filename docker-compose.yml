@@ -10,6 +10,8 @@ services:
       - FLASK_APP=server.py
       - FLASK_ENV=production
     restart: always
+    networks:
+      - default
 
   nginx:
     image: nginx:stable
@@ -20,3 +22,13 @@ services:
       - ./static:/static
     depends_on:
       - flask
+    networks:
+      - default
+      - haproxy_default
+
+networks:
+  default:
+    driver: bridge
+  haproxy_default:
+    external: true
+
