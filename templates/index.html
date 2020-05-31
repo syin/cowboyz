@@ -15,7 +15,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
 
-    <script type="riot/tag" src="{{ url_for('static',filename='cowboyz.tag') }}"></script>
+    <script type="riot/tag" src="{{ root_url }}{{ url_for('static',filename='cowboyz.tag') }}"></script>
 
     <script>
         const rootUrl = "{{ root_url }}";
