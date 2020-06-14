@@ -25,6 +25,7 @@ services:
     networks:
       - default
       - nginx-proxy_nginx-proxy
+    restart: always
     environment:
       - VIRTUAL_PORT=8001
       - VIRTUAL_HOST=cowboyz.shirleyyin.com
