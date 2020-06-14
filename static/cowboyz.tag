@@ -29,7 +29,7 @@
         self.show_emoji_picker = false;
 
         cowboizeEmoji() {
-            const apiUrl = `${rootUrl}/api/cowboize/${self.input_img.name}`;
+            const apiUrl = `/api/cowboize/${self.input_img.name}`;
             fetch(apiUrl, {method: 'GET', mode: 'cors'}).then(response => {
                 response.json().then(data => {
                     self.cowboized_img = data;
@@ -41,7 +41,7 @@
         }
 
         getEmojiList() {
-            const apiUrl = `${rootUrl}/api/list`;
+            const apiUrl = `/api/list`;
             fetch(apiUrl, {method: 'GET', mode: 'cors'}).then(response => {
                 response.json().then(data => {
                     self.available_emojis = data;

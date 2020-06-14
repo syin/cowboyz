@@ -9,8 +9,6 @@ services:
     environment:
       - FLASK_APP=server.py
       - FLASK_ENV=production
-      - ROOT_URL=https://cowboyz.shirleyyin.com
-      - DEBUG=False
     restart: always
     networks:
       - default
@@ -26,11 +24,15 @@ services:
       - flask
     networks:
       - default
-      - haproxy_default
+      - nginx-proxy_nginx-proxy
+    environment:
+      - VIRTUAL_PORT=8001
+      - VIRTUAL_HOST=cowboyz.shirleyyin.com
+      - LETSENCRYPT_HOST=cowboyz.shirleyyin.com
+      - LETSENCRYPT_EMAIL=contact@shirleyyin.com
 
 networks:
   default:
     driver: bridge
-  haproxy_default:
+  nginx-proxy_nginx-proxy:
     external: true
-

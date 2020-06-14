@@ -8,14 +8,14 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 import cowboyz
 
 app = Flask(__name__)
-app.config['DEBUG'] = True if os.environ.get("ROOT_URL") == "True" else False
+app.config['DEBUG'] = True if os.environ.get("FLASK_ENV") == "development" else False
 app.wsgi_app = ProxyFix(app.wsgi_app)
 CORS(app)
 
 
 @app.route('/')
 def server():
-    return render_template('index.html', root_url=os.environ.get("ROOT_URL"))
+    return render_template('index.html')
 
 
 @app.route('/api/list/')
