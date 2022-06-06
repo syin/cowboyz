@@ -15,10 +15,8 @@ services:
 
   nginx:
     image: nginx:stable
-    ports:
-      - 8001:80
     expose:
-      - "8001"
+      - "80"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./static:/static
@@ -29,7 +27,7 @@ services:
       - nginx-proxy_nginx-proxy
     restart: always
     environment:
-      - VIRTUAL_PORT=8001
+      - VIRTUAL_PORT=80
       - VIRTUAL_HOST=cowboyz.shirleyyin.com
       - LETSENCRYPT_HOST=cowboyz.shirleyyin.com
       - LETSENCRYPT_EMAIL=contact@shirleyyin.com
